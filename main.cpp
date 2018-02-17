@@ -96,6 +96,9 @@ public:
 	{
 		m_order = order;
 		m_models.resize(m_order);
+		for (auto &map: m_models) {
+			map.clear();
+		}
 		m_dPrior = dPrior;
 		p_train(trainData);
 	}
