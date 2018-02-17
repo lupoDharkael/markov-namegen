@@ -234,6 +234,7 @@ public:
 			return word;
 		}
 
+		int i = 0;
 		do {
 			word = std::string(m_model.order(), '#');
 			char letter = m_model.generate(word);
@@ -244,7 +245,7 @@ public:
 			}
 			
 			word.erase(std::remove(word.begin(), word.end(), '#'), word.end());
-		} while (word.size() < minLength || word.size() > maxLength);
+		} while (++i < 100 && (word.size() < minLength || word.size() > maxLength));
 
 		return word;
 	}
